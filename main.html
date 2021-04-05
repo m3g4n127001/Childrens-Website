@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Child's First Tutor</title>
+        <link rel="stylesheet" href="maincss.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <script type="text/javascript">
+
+            var intervalID=0;
+            var width=130;
+            var difference=2;
+            var height=130;
+            function playAudio(url,index) 
+            {
+                var aud=new Audio(url);
+                if(aud.paused)
+                {
+                    aud.play();
+                    var elem=document.getElementsByClassName("alphabet");
+                    for(var i=0;i<26;i++) 
+                    {
+                        elem[i].style.width="130px";
+                        elem[i].style.height="130px";
+                    }
+                    increase(index);
+                }
+                else
+                {
+                    aud.paused;
+                }
+            }
+            function increase(index) 
+            {
+                clearInterval(intervalID);
+                intervalID=setInterval(zoomIn,50,index);
+            }
+            function zoomIn(index)
+            {
+                if(width<170 && height<170)
+                {
+                    width=width+difference;
+                    height=height+difference;
+                    document.getElementsByClassName("alphabet")[index].style.width=width+"px";
+                    document.getElementsByClassName("alphabet")[index].style.height=height+"px";
+                }
+                else
+                {
+                    clearInterval(intervalID);
+                    decrease(index);
+                }
+            }
+            function decrease(index) 
+            {
+                clearInterval(intervalID);
+                intervalID=setInterval(zoomOut,50,index);
+            }
+            function zoomOut(index) 
+            {
+                if(width>130 && height>130)
+                {
+                    width=width-difference;
+                    height=height-difference;
+                    document.getElementsByClassName("alphabet")[index].style.width=width+"px";
+                    document.getElementsByClassName("alphabet")[index].style.height=height+"px";
+                }
+                else
+                {
+                    clearInterval(intervalID);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="container" >
+
+            <img src="alphabets/heading2.png" class="heading-alp">
+
+            <div class="dropdown">
+                <div class="icon-container">
+                    <a href="#" class="dropdown-btn">
+                        <span class="fa fa-bars fa-3x menu-icon"></span>
+                    </a>
+                </div>
+                <div class="dropdown-list">
+                    <a href="main.html">Alphabets</a>
+                    <a href="#">numbers</a>
+                    <a href="#">words</a>
+                </div>
+            </div>
+
+            <header>
+            </header>
+            <div class="alphabets" >
+                <div class="row">
+                    <img src="alphabets/1.png" class="alphabet" onclick="playAudio('as2.mp3',0)">
+                    <img src="alphabets/23.png" class="alphabet" onclick="playAudio('b1.mp3',1)" >
+                    <img src="alphabets/2.png" class="alphabet" onclick="playAudio('c1.mp3',2)">
+                    <img src="alphabets/3.png" class="alphabet" onclick="playAudio('d1.mp3',3)">
+                    <img src="alphabets/4.png" class="alphabet" onclick="playAudio('d1.mp3',4)">
+                    <img src="alphabets/5.png" class="alphabet" onclick="playAudio('as2.mp3',5)">
+                    <img src="alphabets/6.png" class="alphabet" onclick="playAudio('as2.mp3',6)">
+                    <br>
+                </div>
+                <div class="row">
+                    <img src="alphabets/7.png" class="alphabet" onclick="playAudio('as2.mp3',7)">
+                    <img src="alphabets/8.png" class="alphabet" onclick="playAudio('as2.mp3',8)" >
+                    <img src="alphabets/9.png" class="alphabet" onclick="playAudio('b1.mp3',9)">
+                    <img src="alphabets/10.png" class="alphabet" onclick="playAudio('c1.mp3',10)">
+                    <img src="alphabets/11.png" class="alphabet" onclick="playAudio('d1.mp3',11)">
+                    <img src="alphabets/12.png" class="alphabet" onclick="playAudio('as2.mp3',12)">
+                    <img src="alphabets/13.png" class="alphabet" onclick="playAudio('as2.mp3',13)">
+                    <img src="alphabets/14.png" class="alphabet" onclick="playAudio('as2.mp3',14)">
+                    <img src="alphabets/15.png" class="alphabet" onclick="playAudio('as2.mp3',15)" >
+                    <br>
+                </div>
+                <div class="row">
+                    <img src="alphabets/16.png" class="alphabet" onclick="playAudio('b1.mp3',16)">
+                    <img src="alphabets/24.png" class="alphabet" onclick="playAudio('as2.mp3',17)" >
+                    <img src="alphabets/18.png" class="alphabet" onclick="playAudio('d1.mp3',18)">
+                    <img src="alphabets/25.png" class="alphabet" onclick="playAudio('b1.mp3',19)">
+                    <img src="alphabets/19.png" class="alphabet" onclick="playAudio('as2.mp3',20)">
+                    <img src="alphabets/20.png" class="alphabet" onclick="playAudio('as2.mp3',21)">
+                    <img src="alphabets/21.png" class="alphabet" onclick="playAudio('as2.mp3',22)">
+                    <br>
+                </div>
+                <div class="row">
+                    <img src="alphabets/26.png" class="alphabet" onclick="playAudio('as2.mp3',23)" >
+                    <img src="alphabets/29.png" class="alphabet" onclick="playAudio('d1.mp3',24)">
+                    <img src="alphabets/27.png" class="alphabet" onclick="playAudio('d1.mp3',25)">
+                </div>
+            </div>
+            <footer>
+
+            </footer>
+        </div>
+    </body>
+</html>
